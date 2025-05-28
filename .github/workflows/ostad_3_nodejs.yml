@@ -23,7 +23,7 @@ jobs:
       - name: Run tests and generate report
         run: |
           mkdir -p test-results
-          npm jest --ci --reporters=default --reporters=jest-junit
+          npm test -- --reporter=junit --reporter-option=outputFile=test-results/junit.xml
         env:
           JEST_JUNIT_OUTPUT_DIR: test-results
       - name: Archive test results
