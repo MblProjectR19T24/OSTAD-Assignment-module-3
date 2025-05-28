@@ -17,4 +17,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Perform Application Check
-        uses: node-express-app@1.0.0 check
+        run: |
+          npm install
+          npm run check
