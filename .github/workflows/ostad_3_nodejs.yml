@@ -28,5 +28,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: /home/docker
+          path: /home/docker/
           if-no-files-found: error  
