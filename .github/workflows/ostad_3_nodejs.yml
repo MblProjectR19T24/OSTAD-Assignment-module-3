@@ -23,7 +23,7 @@ jobs:
           npm run build --if-present
       - name: Run Code Coverage
         run: |
-          mvn clean jacoco:prepare-agent test jacoco:report
+          ng test --no-watch --no-progress --code-coverage
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
