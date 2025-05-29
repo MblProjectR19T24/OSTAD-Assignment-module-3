@@ -16,20 +16,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '${{ matrix.node-version }}'
+          cache: 'npm'
       - name: Perform Application Check
         run: |
-          npm install
-          npm run check
-      - name: Run tests and generate report
-        run: |
-          mkdir -p test-results
-          npm self-hosted -- --reporter=junit --reporter-option=outputFile=test-results/junit.xml
-        env:
-          JEST_JUNIT_OUTPUT_DIR: test-results
-      - name: Archive test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: test-results/
-          retention-days: 5
+          npm ci
+          npm run build --if-present
+          npm test
+ 
