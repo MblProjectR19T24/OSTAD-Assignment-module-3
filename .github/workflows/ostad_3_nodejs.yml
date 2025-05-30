@@ -41,7 +41,6 @@ jobs:
         name: test-results.json
         path: ./test_result_download/
         if-no-files-found: error
-    - name: Display Coverage report
   deployment:
     needs: deploy
     runs-on: self-hosted
