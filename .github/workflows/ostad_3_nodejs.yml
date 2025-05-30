@@ -52,5 +52,5 @@ jobs:
           node-version: '${{ matrix.node-version }}'
           cache: npm
      - name: Perform Application Check
-       run: npm start
+       run: npm run start
           
