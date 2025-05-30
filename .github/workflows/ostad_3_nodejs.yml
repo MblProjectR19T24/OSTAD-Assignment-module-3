@@ -53,6 +53,5 @@ jobs:
           node-version: '${{ matrix.node-version }}'
           cache: npm
      - name: Perform Application Check
-       run: |
-          npm ci
-          npm run build --if-present
+       run: npm start
+          
