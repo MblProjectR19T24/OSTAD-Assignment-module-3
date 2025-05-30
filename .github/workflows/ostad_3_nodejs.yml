@@ -23,8 +23,7 @@ jobs:
           npm run build --if-present
       - name: Run Code Coverage
         run: | 
-          mkdir -p test-results
-          npm test -- --reporter=mocha-junit-reporter --reporter-options mochaFile=./test-reports/results.xml
+          npm run check -- --reporter=mocha-junit-reporter --reporter-options mochaFile=./test-reports/results.xml
       - name: Upload Coverage report
         uses: actions/upload-artifact@v4
         with:
