@@ -23,7 +23,7 @@ jobs:
           npm run build --if-present
       - name: Run Code Coverage
         run: | 
-          npm run check
+          npm run check -- --reporter=json --reporter-options output=test-results.json
       - name: Upload Coverage report
         uses: actions/upload-artifact@v4
         with:
