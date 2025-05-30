@@ -41,3 +41,5 @@ jobs:
         name: test-results.json
         path: ./test_result_download/
         if-no-files-found: error
+    - name: Display Coverage report
+      run: cat ./test_result_download/test-results.json
