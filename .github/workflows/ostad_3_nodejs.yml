@@ -16,17 +16,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '${{ matrix.node-version }}'
-          cache: 'npm'
+          cache: npm
       - name: Perform Application Check
         run: |
           npm ci
           npm run build --if-present
       - name: Run Code Coverage
-        run: | 
-          npm run check -- --reporter=json --reporter-options output=test-results.json
+        run: >
+          npm run check -- --reporter=json --reporter-options
+          output=test-results.json
       - name: Upload Coverage report
         uses: actions/upload-artifact@v4
         with:
           name: test-results.json
           path: ./
-          if-no-files-found: error  
+          if-no-files-found: error
+  deploy:
+    needs: test
+    runs-on: self-hosted
+    steps:
+    - name: Download Coverage report
+      uses: actions/download-artifact@v4
+      with:
+        name: test-results.json
+        path: ./test_result_download/
+        if-no-files-found: error
