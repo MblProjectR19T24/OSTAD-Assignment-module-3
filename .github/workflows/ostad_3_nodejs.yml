@@ -24,10 +24,10 @@ jobs:
       - name: Run Code Coverage
         run: | 
           mkdir -p test-results
-          npm run check -- --coverage --coverageDirectory=test-results
+          npm test -- --reporter=mocha-junit-reporter --reporter-options mochaFile=./test-reports/results.xml
       - name: Upload Coverage report
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-report
-          path: test-results
+          name: test-report
+          path: ./test-reports/
           if-no-files-found: error  
