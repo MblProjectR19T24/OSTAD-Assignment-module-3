@@ -42,4 +42,9 @@ jobs:
         path: ./test_result_download/
         if-no-files-found: error
     - name: Display Coverage report
-      run: cat ./test_result_download/test-results.json
+  deployment:
+    needs: deploy
+    runs-on: self-hosted
+    steps:
+    - name: Deployment of Application
+      run: npm start
