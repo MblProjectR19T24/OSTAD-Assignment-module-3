@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 22.x
+          - 24.x
     steps:
       - uses: actions/checkout@v4
       - name: 'Use Node.js ${{ matrix.node-version }}'
@@ -53,6 +53,5 @@ jobs:
           cache: npm
      - name: Perform Application Checking
        run: |
-         pm2 delete node-app || true
          pm2 start "./src/server.js" --name node-app
          pm2 save
