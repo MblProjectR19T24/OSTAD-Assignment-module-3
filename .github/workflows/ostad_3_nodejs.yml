@@ -5,7 +5,7 @@ name: CI/CD for NodeJS App
       - main
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version:
@@ -33,7 +33,7 @@ jobs:
           if-no-files-found: error
   deploy:
     needs: test
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: Download Coverage report
       uses: actions/download-artifact@v4
@@ -43,7 +43,7 @@ jobs:
         if-no-files-found: error
   deployment:
     needs: deploy
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v4
      - name: 'Use Node.js ${{ matrix.node-version }}'
