@@ -54,5 +54,5 @@ jobs:
      - name: Perform Application Check
        run: |
          npm ci
-         npm run start
+         npm run start sleep 10
           
