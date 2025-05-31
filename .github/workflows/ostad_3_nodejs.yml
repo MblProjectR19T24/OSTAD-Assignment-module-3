@@ -54,4 +54,4 @@ jobs:
      - name: Perform Application Checking
        run: |
          pm2 start ./src/server.js --name node-app
-         pm2 save  
+         pm2 save
