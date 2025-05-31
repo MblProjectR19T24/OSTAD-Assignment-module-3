@@ -51,7 +51,7 @@ jobs:
        with:
           node-version: '${{ matrix.node-version }}'
           cache: npm
-     - name: Perform Application Checking
+     - name: Perform Application Check
        run: |
          pm2 start "./src/server.js" --name node-app
          pm2 save
